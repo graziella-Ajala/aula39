@@ -89,5 +89,15 @@ class Player {
       //dados são armazenados em formato JSON
     });
   }
+  carrosnofinal(){
+    database.ref("carrosnofinal").on("value",data=>{
+      this.rank=data.val()
+    })
+  }
+  static updatecarrosnofinal(rank){
+   database.ref("/").update({
+   carrosnofinal:rank
+   })
+  }
 }
 
